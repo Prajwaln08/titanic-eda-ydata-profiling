@@ -1,0 +1,33 @@
+# Environment variables — NEVER commit real credentials
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# YData Profiling output
+reports/
+*.html
+
+# macOS
+.DS_Store
+
+# Data files (loaded from GitHub URL directly)
+data/
+*.csv
