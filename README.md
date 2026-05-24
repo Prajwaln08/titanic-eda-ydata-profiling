@@ -23,8 +23,8 @@ Dataset sourced from [HarshvardhanSingh-13/Datasets](https://github.com/Harshvar
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
+git clone git@github.com:Prajwaln08/titanic-eda-ydata-profiling.git
+cd titanic-eda-ydata-profiling
 ```
 
 ### 2. Create a virtual environment
@@ -48,8 +48,30 @@ cp .env.example .env
 # Open .env and fill in your GITHUB_USERNAME and GITHUB_TOKEN
 ```
 
-Generate a GitHub token at: **Settings → Developer settings → Personal access tokens → Fine-grained tokens**
-Scopes needed: `Contents: Read-only` (public repos need no token).
+Generate a token at: **Settings → Developer settings → Personal access tokens → Tokens (classic)**  
+Scopes needed: `repo` (full control). Public datasets work without a token.
+
+### SSH setup (for contributors)
+
+This repo uses SSH for git operations. If you're cloning to push changes:
+
+```bash
+# Generate a key (skip if you already have one)
+ssh-keygen -t ed25519 -C "your@email.com" -f ~/.ssh/github_key
+
+# Add to GitHub: Settings → SSH and GPG keys → New SSH key
+cat ~/.ssh/github_key.pub
+
+# Add to ~/.ssh/config
+echo "Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github_key
+  IdentitiesOnly yes" >> ~/.ssh/config
+
+# Test
+ssh -T git@github.com
+```
 
 ### 5. Run the notebook
 
